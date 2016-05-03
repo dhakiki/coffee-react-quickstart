@@ -3,9 +3,11 @@
 require '../../public/main.css'
 
 React = require 'react'
+Reflux = require 'reflux'
 ReactDOM = require 'react-dom'
 # Assign React to Window so the Chrome React Dev Tools will work.
 window.React = React
+window.Reflux = Reflux
 
 Router = require('react-router')
 Route = Router.Route

@@ -1,7 +1,13 @@
 Link = require('react-router').Link
+todoStore = require './stores/todo_store.cjsx'
+Actions = require './actions/todo_action.cjsx'
 
 module.exports = React.createClass
+  mixins: [Reflux.connect(todoStore,"status")],
   displayName: 'HelloWorld'
+
+  toggleStatus: ->
+    Actions.toggleStatus()
 
   render: ->
     <div>
@@ -20,6 +26,13 @@ module.exports = React.createClass
           <li><a href="https://github.com/Team-Sass/modular-scale">modular-scale</a>: easily create pleasing modular type scales.</li>
           <li><a href="https://github.com/jhardy/Sassy-Buttons">Sassy Buttons</a>: flexible button styling.</li>
           <li><a href="http://breakpoint-sass.com/">Breakpoint</a>: Super simple media queries.</li>
+          <li><a href="https://github.com/reflux/refluxjs">Reflux</a>: A simple library for uni-directional dataflow application architecture with React extensions inspired by Flux</li>
         </ul>
       </ul>
+      <h3>Reflux In Action</h3>
+      <p>To see the stores/actions in action, check out the updated status.</p>
+      <div className='center-content'>
+        <h3>Status: {@state.status}</h3>
+        <div className="button" onClick=@toggleStatus>Toggle ON/OFF</div>
+      </div>
     </div>

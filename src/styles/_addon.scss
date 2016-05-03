@@ -1,0 +1,7 @@
+.button {
+  @include sassy-button("matte", 15px, 20px, rgba(11, 153, 194, 1))
+}
+
+.center-content {
+  text-align: center;
+}
